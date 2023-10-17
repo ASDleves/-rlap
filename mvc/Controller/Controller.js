@@ -2,32 +2,34 @@ import UrlapModel from "../Modell.js/UrlapModel.js"
 import UrlapView from "../View/View.js"
 
 class Controller {
+
     constructor() {
         this.urlapModel = new UrlapModel();
         this.urlapView = new UrlapView($(".urlap"), this.urlapModel.leiro);
-
-        jQuery(this.urlapView.submitElem).on("click", (event) => {
-            event.preventDefault();
-            let isValid = true;
-            let urlapAdatok = {};
-
-            this.urlapView.urlapElemList.forEach((elem) => {
-                isValid = isValid && elem.valid;
+        this.submitElem = $("#submit")
+        this.submitElem.on("click", (event) => {
+            event.preventDefault()
+            let urlapelemLista = this.urlapView.getUrlapElemList();
+            let urlapadat = this.urlapView.getUrlapadatok();
+            let isFormValid = true; // Use a different variable name
+            urlapelemLista.forEach((elem) => {
+                isFormValid = isFormValid && elem.getvalid();
+                console.log(elem.getvalid());
             });
-
-            if (isValid) {
-                console.log("Valid az űrlap!");
-                this.urlapView.urlapElemList.forEach((elem) => {
-                    let ertek = elem.ertek;
-                    let kulcs = elem.key;
-                    urlapAdatok[kulcs] = ertek;
-                });
-                console.log(urlapAdatok);
+            if (isFormValid) {
+                console.log("valid az űrlap!")
+                urlapelemLista.forEach((elem) => {
+                    let ertek = elem.ertek
+                    let kulcs = elem.key
+                    urlapadat[kulcs] = ertek
+                    console.log(urlapadat)
+                })
             } else {
-                console.log("Nem valid az űrlap!");
+                console.log("Nem valid az űrlap!")
             }
-        });
+        })
     }
 }
+
 
 export default Controller;

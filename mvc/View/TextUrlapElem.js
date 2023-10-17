@@ -28,7 +28,7 @@ class TextUrlapElem{
         })
 
     }
-    get valid(){
+    getvalid(){
         return this.#valid
     }
     get ertek(){

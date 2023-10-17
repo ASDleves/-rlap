@@ -11,27 +11,16 @@ constructor(szuloElem,leiro){
     this.szuloElem.append("<form>")
     this.formelem=this.szuloElem.children("form")
     this.#urlapLetrehoz()
-    this.submitElem=$("#submit")
-    this.submitElem.on("click",(event)=>{
-        event.preventDefault()
-        this.#valid=true
-        this.#urlapElemList.forEach((elem)=>{
-            this.#valid=this.#valid &&elem.valid
-            console.log(this.#valid)
-            
-        })
-        if(this.#valid){
-            console.log("valid az űrlap!")
-            this.#urlapElemList.forEach((elem)=>{
-                let ertek=elem.ertek
-                let kulcs = elem.key
-                this.#urlapAdatok[kulcs]=ertek
-                console.log(this.#urlapAdatok)
-            })
-        }else{
-            console.log("Nem valid az űrlap!")
-        }
-    })
+    
+}
+getUrlapElemList() {
+    return this.#urlapElemList;
+}
+getUrlapadatok(){
+    return this.#urlapAdatok
+}
+getvalid(){
+    return this.#valid
 }
 
 #urlapLetrehoz(){
