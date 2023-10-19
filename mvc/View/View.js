@@ -1,4 +1,5 @@
 import NumberUrlapElem from "./Number/NumberUrlapElem.js";
+import RadioUrlapElem from "./Radio/RadioUrlap.js";
 import SelectUrlapElem from "./Select/SelectUrlap.js";
 import TextUrlapElem from "./Text/TextUrlapElem.js";
 
@@ -37,6 +38,10 @@ class UrlapView {
                     break;
                 case "select":
                     this.#urlapElemList.push(new SelectUrlapElem(key, this.#leiro[key], this.formelem))
+                    break;
+                case "radio":
+                    this.#urlapElemList.push(new RadioUrlapElem(key, this.#leiro[key], this.formelem))
+                    break;
                 default:
 
             }
@@ -46,6 +51,7 @@ class UrlapView {
         this.formelem.append(txt)
         
     }
+    
     
 
 
