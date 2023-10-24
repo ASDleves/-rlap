@@ -28,7 +28,7 @@ class TextUrlapElem{
         })
 
     }
-    get valid(){
+    getvalid(){
         return this.#valid
     }
     get ertek(){
@@ -54,6 +54,7 @@ class TextUrlapElem{
             this.formelem.append(txt)
     
     }
+    
 }
 
 export default TextUrlapElem
