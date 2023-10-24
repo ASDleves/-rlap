@@ -12,16 +12,12 @@ class Controller {
             let urlapelemLista = this.urlapView.getUrlapElemList();
             let urlapadat = this.urlapView.getUrlapadatok();
             let isFormValid = true; 
-            let szamisValid = true;
-            let selectValid = true;
-            let radioValid = true;
             urlapelemLista.forEach((elem) => {
                 isFormValid = isFormValid && elem.getvalid();
-                szamisValid = szamisValid && elem.getvalid();  
-                selectValid = selectValid && elem.getvalid(); 
-                radioValid = radioValid && elem.getvalid();
+
+                
             });
-            if (isFormValid && szamisValid && selectValid && radioValid) {
+            if (isFormValid) {
                 console.log("valid az űrlap!")
                 urlapelemLista.forEach((elem) => {
                     let ertek = elem.ertek

@@ -17,12 +17,11 @@ class RadioUrlapElem {
             const selectedRadio = this.radioElem.filter(":checked");
             
             if (selectedRadio.length != 1) {
-                // No radio button selected, mark as invalid
+   
                 this.#valid = false;
                 this.invalidElem.removeClass("lathatosag");
                 this.validElem.addClass("lathatosag");
             } else {
-                console.log(selectedRadio.length)
                 this.#valid = true;
                 this.validElem.removeClass("lathatosag");
                 this.invalidElem.addClass("lathatosag");
